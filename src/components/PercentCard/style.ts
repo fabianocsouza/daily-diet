@@ -16,7 +16,7 @@ export const Container = styled(Pressable)`
 `;
 
 export const Card = styled(MotiView)`
-  width: 100%;
+  width: 380px;
   height: 102px;
 
   background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};

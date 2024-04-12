@@ -27,6 +27,10 @@ export const UserImg = styled.Image`
   height: 60px;
 `;
 
+export const NewDiet = styled.View`
+  margin-bottom: 30px;
+`
+
 export const Title = styled.Text`
   margin-top: 40px;
 
@@ -36,5 +40,14 @@ export const Title = styled.Text`
     color: ${theme.COLORS.GRAY_100};
   `}
   
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  `;
+
+export const TitleDailyDiet = styled.Text`
+
+  ${({ theme }) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.XL}px;
+    color: ${theme.COLORS.GRAY_100};
+  `}
   `;

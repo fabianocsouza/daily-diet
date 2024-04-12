@@ -21,7 +21,6 @@ export const Header = styled.View`
 `;
 export const IconButton = styled(Pressable)`
   right: 100px;
-  cursor: pointer;
 `;
 
 export const ArrowL = styled(ArrowLeft).attrs({

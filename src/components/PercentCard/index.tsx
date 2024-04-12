@@ -14,7 +14,7 @@ export function PercentCard({active, ...props}: Props) {
   const toggleAnimationState = useAnimationState({
     close: {
       height: 102,
-      width: 400,
+      width: 380,
       
     },
     open: {
@@ -42,7 +42,8 @@ export function PercentCard({active, ...props}: Props) {
         onPressIn={handleOpenToggle}
         onPressOut={handleCloseToggle}
       > 
-       <AnimatePresence>
+       <AnimatePresence
+       >
       <Card state={toggleAnimationState} >
         {active
           ? <ArrowL size={32} />

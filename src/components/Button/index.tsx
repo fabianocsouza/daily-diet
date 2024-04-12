@@ -4,16 +4,17 @@ import { Container, Icon, NameButton } from "./styles";
 
 type Props = TouchableOpacityProps & {
   title: string;
+  showDark?: boolean;
 }
 
-export function Button({title, ...props}: Props){
+export function Button({ showDark=true, title, ...props}: Props){
     
   return(
-    <Container {...props}>
+    <Container showDark={showDark} {...props}>
       <Icon>
         {props.children}
       </Icon>
-      <NameButton>{title}</NameButton>
+      <NameButton showDark={showDark} >{title}</NameButton>
     </Container>
   );
 }
