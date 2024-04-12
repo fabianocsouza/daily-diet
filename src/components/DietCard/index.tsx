@@ -1,5 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
-import { Container, DailyView, Hours, Separator, Status, StatusView, Title } from "./styles";
+
+import { 
+  Container, DailyView, Hours, 
+  Separator, Status, StatusView, Title 
+  } from "./styles";
+  
 type Props = {
   status: boolean;
 }

@@ -1,7 +1,7 @@
 import { MotiView } from "moti";
-import { ArrowLeft, ArrowUpRight } from "phosphor-react-native";
 import { Pressable } from "react-native";
 import styled, { css } from "styled-components/native";
+import { ArrowLeft, ArrowUpRight } from "phosphor-react-native";
 
 export const Container = styled(Pressable)`
   width: 100%;

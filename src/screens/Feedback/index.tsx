@@ -1,7 +1,9 @@
-import { FeedbackPositive } from "@components/FeedbackCard/FeedbackPositive";
-import { ButtonHome, ButtonTitle, Container } from "./styles";
-import { FeedbackNegative } from "@components/FeedbackCard/FeedbackNegative";
 import { useNavigation, useRoute } from "@react-navigation/native";
+
+import { ButtonHome, ButtonTitle, Container } from "./styles";
+
+import { FeedbackNegative } from "@components/FeedbackCard/FeedbackNegative";
+import { FeedbackPositive } from "@components/FeedbackCard/FeedbackPositive";
 
 type FeedbackProps ={
   status: boolean;

@@ -3,10 +3,18 @@ import styled, { css } from "styled-components/native";
 
 type Props = {
   showDark: boolean;
+  size?: string;
 }
 
 export const Container = styled(TouchableOpacity)<Props>`
-  width: 100%;
+   ${({theme, showDark, size}) => css`
+      width: ${size};
+      background-color:  ${showDark
+          ? theme.COLORS.GRAY_200
+          : 'transparent'
+          };
+      border: 1px solid ${ showDark && theme.COLORS.GRAY_100};
+    `};
   height: 60px;
 
   border-radius: 6px;
@@ -15,13 +23,7 @@ export const Container = styled(TouchableOpacity)<Props>`
   flex-direction: row;
   justify-content: center;
 
- ${({theme, showDark}) => css`
-  background-color:  ${showDark
-      ? theme.COLORS.GRAY_200
-      : 'transparent'
-      };
-  border: 1px solid ${ showDark && theme.COLORS.GRAY_100};
-  `};
+
 
   margin-bottom: 10px;
 `;

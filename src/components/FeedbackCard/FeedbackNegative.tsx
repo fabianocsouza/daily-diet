@@ -1,5 +1,5 @@
-import { useRoute } from "@react-navigation/native";
 import { Container, Description, StatusImage, Title } from "./styles";
+
 import negativeImg from "@assets/negative.png"
 
 type Props = {

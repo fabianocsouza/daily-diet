@@ -1,7 +1,8 @@
-import { AnimatePresence, useAnimationState } from 'moti';
-import { ArrowL, ArrowUpR, Card, Container, Description, PercentageValue } from './style';
-import { PressableProps } from 'react-native';
 import { useState } from 'react';
+import { PressableProps } from 'react-native';
+import { AnimatePresence, useAnimationState } from 'moti';
+
+import { ArrowL, ArrowUpR, Card, Container, Description, PercentageValue } from './style';
 
 type Props = PressableProps & {
   active: boolean;

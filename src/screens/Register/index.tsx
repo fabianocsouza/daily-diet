@@ -1,5 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
-import { ArrowL, IconButton, ButtonView, Container, Content, Day, DayTime, Form, Header, InputDate, InputDescription, InputHours, InputName, LabelText, Options, Time, Title } from './styles';
+
+import { ArrowL, IconButton, ButtonView, 
+        Container, Content, Day, DayTime, 
+        Form, Header, InputDate, InputDescription, 
+        InputHours, InputName, LabelText, Options, Time, Title } from './styles';
+
 import { ButtonSelect } from '@components/ButtonSelect';
 import { Button } from '@components/Button';
 

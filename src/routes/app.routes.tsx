@@ -1,22 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { DailyDiet } from "@screens/DailyDiet";
-import { Feedback } from "@screens/Feedback";
+
 import { Home } from "@screens/Home";
+import { Feedback } from "@screens/Feedback";
 import { Register } from "@screens/Register";
+import { DailyDiet } from "@screens/DailyDiet";
 import { Statistic } from "@screens/Statistic";
-
-declare global {
-  namespace ReactNavigation {
-    interface RootParamList {
-      Home: undefined;
-      Statistic: undefined;
-      Register: undefined;
-      Feedback: { status: boolean } | undefined;
-      DailyDiet: undefined;
-    }
-  }
-}
-
 
 export const AppRoute = () => {
   const { Navigator, Screen } = createNativeStackNavigator();

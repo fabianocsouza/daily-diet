@@ -1,7 +1,8 @@
-import { PercentCard } from "@components/PercentCard";
-import { Card, Card2, Card3, Container, Content, Description, Result, Title, Value} from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import { View } from "react-native";
+
+import { Card, Card2, Card3, Container, Content, Description, Result, Title, Value} from "./styles";
+
+import { PercentCard } from "@components/PercentCard";
 
 export const Statistic = () => {
   

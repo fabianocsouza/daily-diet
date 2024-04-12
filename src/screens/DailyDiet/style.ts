@@ -1,7 +1,8 @@
-import { ArrowLeft } from "phosphor-react-native";
 import { Pressable } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { ArrowLeft } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
@@ -101,7 +102,7 @@ export const Status = styled.View`
 
   background-color: ${({theme}) => theme.COLORS.GREEN_DARK};
 
-  border-radius: 50%;
+  border-radius: 50px;
 
   right: 8px;
 `;

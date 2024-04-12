@@ -58,5 +58,5 @@ export const Status = styled.View<Props>`
     : theme.COLORS.RED_MID
   };
 
-  border-radius: 50%;
+  border-radius: 50px;
 `;

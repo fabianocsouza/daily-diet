@@ -9,6 +9,7 @@ export default {
     GREEN_MID:   '#CBE4B4',
     GREEN_LIGHT: '#E5F0DB',
 
+    GRAY_50:  'rgba(0, 0, 0,0.5)',
     GRAY_100: '#1B1D1E',
     GRAY_200: '#333638',
     GRAY_300: '#5C6265',
