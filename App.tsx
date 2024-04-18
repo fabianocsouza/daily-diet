@@ -6,6 +6,7 @@ import theme from 'src/theme';
 
 import { Loading } from '@components/Loading';
 import { Routes } from 'src/routes';
+import { AuthContextProvider } from 'src/contexts/AuthContext';
 
 export default function App() {
   const  [fontsLoaded ] = useFonts({NunitoSans_400Regular, NunitoSans_700Bold});
@@ -16,7 +17,9 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      {fontsLoaded ? <Routes /> : <Loading/> }
+      <AuthContextProvider>
+        {fontsLoaded ? <Routes /> : <Loading/> }
+      </AuthContextProvider>
     </ThemeProvider>
     
   );

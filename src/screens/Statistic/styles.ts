@@ -1,9 +1,17 @@
 import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export const Container = styled(SafeAreaView)`
+type Props = {
+  percent: number;
+}
+
+export const Container = styled(SafeAreaView)<Props>`
   flex: 1;
-  background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({theme, percent}) => 
+    percent >= 50
+    ? theme.COLORS.GREEN_LIGHT
+    : theme.COLORS.RED_LIGHT
+  };
 
 `;
 

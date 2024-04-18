@@ -48,7 +48,7 @@ export const Content = styled.View`
   background-color: ${({theme}) => theme.COLORS.WHITE};
 `
 
-export const Form = styled.View`
+export const FormDiet = styled.View`
   margin-top: 20px;
   margin-bottom: 110px;
 `;

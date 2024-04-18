@@ -1,22 +1,22 @@
-import { useState } from 'react';
 import { PressableProps } from 'react-native';
 import { AnimatePresence, useAnimationState } from 'moti';
 
 import { ArrowL, ArrowUpR, Card, Container, Description, PercentageValue } from './style';
 
+import { generalStatistics } from 'src/service/generalStatistics';
+
 type Props = PressableProps & {
   active: boolean;
 }
 
-export function PercentCard({active, ...props}: Props) {
+export function PercentCard({active,  ...props}: Props) {
 
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+  const { percent  } = generalStatistics()
 
   const toggleAnimationState = useAnimationState({
     close: {
       height: 102,
       width: 380,
-      
     },
     open: {
       height: 470,
@@ -25,18 +25,16 @@ export function PercentCard({active, ...props}: Props) {
   })
 
   function handleOpenToggle() {
-
     toggleAnimationState.transitionTo("open");
   }
 
    function handleCloseToggle() {
-    setTimeoutId(setTimeout(() => {
+    setTimeout(() => {
       toggleAnimationState.transitionTo("close");
-    }, 1000)); // 10 segundos
+    }, 1000); // 10 segundos
   }
 
   return (
-    
     
        <Container
         {...props}
@@ -45,11 +43,11 @@ export function PercentCard({active, ...props}: Props) {
       > 
        <AnimatePresence
        >
-      <Card state={toggleAnimationState} >
+      <Card percent={percent}  state={toggleAnimationState} >
         {active
-          ? <ArrowL size={32} />
-        : <ArrowUpR size={32} />}
-        <PercentageValue>90,86%</PercentageValue>
+          ? <ArrowL percent={percent} size={32} />
+        : <ArrowUpR percent={percent} size={32} />}
+        <PercentageValue>{percent.toFixed(0)}%</PercentageValue>
         <Description>das refeições dento da dieta</Description>
       </Card>
       </AnimatePresence>

@@ -27,13 +27,13 @@ export const Hours = styled.Text`
       font-size: ${theme.FONT_SIZE.SM}px;
       color: ${theme.COLORS.GRAY_100};
   `}
-  margin-right: 15px;
+  margin-right: 8px;
 `;
 export const Separator = styled.View`
   width: 0;
   height: 16px;
 
-  margin-right: 15px;
+  margin-right: 8px;
 
   border: 0.8px solid ${({theme}) => theme.COLORS.GRAY_400};
 `;
@@ -51,6 +51,8 @@ type Props = {
 export const Status = styled.View<Props>`
   width: 14px;
   height: 15px;
+
+  left: 5px;
 
   background-color: ${({theme, status}) => 
     status

@@ -2,12 +2,18 @@ import { Pressable } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+type Props = {
+  status?: boolean;
+}
 
-
-export const Container = styled(SafeAreaView)`
+export const Container = styled(SafeAreaView)<Props>`
   flex: 1;
 
-  background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({theme, status }) =>
+  status
+  ? theme.COLORS.GREEN_LIGHT
+  : theme.COLORS.RED_LIGHT
+};
 `;
 export const Header = styled.View`
   margin-top: 15px;
@@ -96,11 +102,17 @@ export const StatusDescription = styled.Text`
     color: ${theme.COLORS.GRAY_100};
   `};
 `;
-export const Status = styled.View`
+
+
+export const Status = styled.View<Props>`
   width: 8px;
   height: 8px;
 
-  background-color: ${({theme}) => theme.COLORS.GREEN_DARK};
+  background-color: ${({theme, status }) => 
+  status
+    ? theme.COLORS.GREEN_DARK
+    : theme.COLORS.RED_DARK
+  };
 
   border-radius: 50px;
 

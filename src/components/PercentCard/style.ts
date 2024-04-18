@@ -15,11 +15,18 @@ export const Container = styled(Pressable)`
 
 `;
 
-export const Card = styled(MotiView)`
+type Props = {
+  percent: number;
+}
+export const Card = styled(MotiView)<Props>`
   width: 380px;
   height: 102px;
 
-  background-color: ${({theme}) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({theme, percent}) => 
+    percent >= 50
+    ? theme.COLORS.GREEN_LIGHT
+    : theme.COLORS.RED_LIGHT
+  };
 
   border-radius: 8px;
 
@@ -30,16 +37,24 @@ export const Card = styled(MotiView)`
 
 export const ArrowL = styled(ArrowLeft).attrs({
   size: 24,
-})`
-  color: ${({theme}) => theme.COLORS.GREEN_DARK};
+})<Props>`
+  color: ${({theme, percent}) => 
+  percent >= 50
+    ?theme.COLORS.GREEN_DARK
+    : theme.COLORS.RED_DARK
+  };
   right: 370px;
   top: 10px;
   position: absolute;
 `
 export const ArrowUpR = styled(ArrowUpRight).attrs({
   size: 24,
-})`
-  color: ${({theme}) => theme.COLORS.GREEN_DARK};
+})<Props>`
+  color: ${({theme, percent}) => 
+  percent >= 50
+    ?theme.COLORS.GREEN_DARK
+    : theme.COLORS.RED_DARK
+  };
   left: 164px;
   top: 10px;
   
