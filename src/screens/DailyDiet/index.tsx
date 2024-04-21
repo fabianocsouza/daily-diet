@@ -1,6 +1,6 @@
-import { useCallback, useContext, useState } from "react";
-import { useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
+import { useState } from "react";
 import { PencilSimpleLine, Trash } from "phosphor-react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import theme from "src/theme";
 import { 
@@ -12,11 +12,8 @@ import {
 import { Modal } from "@components/Modal";
 import { Button } from "@components/Button";
 
-import { useAuth } from "src/hooks/useAuth";
+import { updateData } from "@service/updateData";
 import { dietRemove } from "@storage/diet/dietRemove";
-import { dietGetAll } from "@storage/diet/dietGetAll";
-import { DailyStorageDTO } from "src/dtos/DietStorageDTO";
-import { updateData } from "src/service/updateData";
 
 type Props = {
   title: string;
@@ -24,22 +21,20 @@ type Props = {
 }
 
 export function DailyDiet() {
-    const [visible, setVisible] = useState(false);
-    const { diet, title } = useRoute().params as Props;
-    const data = updateData();
-    const navigation = useNavigation();
+  const { diet, title } = useRoute().params as Props;
+  const [visible, setVisible] = useState(false);
+   
+  const data = updateData();
+  const navigation = useNavigation();
 
-    const date = title.replace(/\//g, ".");
-    const daily = data.flatMap(item => item.data).find(( { name } ) => name === diet);
+  const date = title.replace(/\//g, ".");
+  const daily = data.flatMap(item => item.data).find(( { name } ) => name === diet);
 
-    async function handleRemove() {
-      await dietRemove(diet, date);
-      navigation.navigate("Home");
-    }
-
-    
-  
-    
+  async function handleRemove() {
+    await dietRemove(diet, date);
+    navigation.navigate("Home");
+  }
+ 
   return (
     <Container status={daily?.status}>
       <Header>

@@ -2,12 +2,12 @@ import { useFocusEffect } from "@react-navigation/native";
 import { dietGetAll } from "@storage/diet/dietGetAll";
 import { useCallback, useState } from "react";
 import { DailyStorageDTO } from "src/dtos/DietStorageDTO";
-import { useAuth } from "src/hooks/useAuth";
+import { useDiet } from "src/hooks/useDiet";
 
 export function updateData() {
 
   const [ dailyDiet, setDailyDiets ] = useState<DailyStorageDTO[]>([]);
-  const { refreshData } =  useAuth();
+  const { refreshData } =  useDiet();
 
 
   async function fetchDailyDiet(){

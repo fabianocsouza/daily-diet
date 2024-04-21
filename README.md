@@ -6,7 +6,7 @@
 - [ x ] armazenar do AsyncStorage;
 - [ x ] Listar a dieta;
 - [ x ] fazer os dados repassado global para aplicação;
-- [   ] Editar a dieta;
+- [ x ] Editar a dieta;
 - [ x ] Remover a dieta;
 - [   ] Adicionar foto do usuário no app;
 

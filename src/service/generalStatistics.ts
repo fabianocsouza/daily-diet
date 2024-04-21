@@ -1,9 +1,9 @@
 import { StatusDietDTO } from "src/dtos/StatusDietDTO";
-import { useAuth } from "src/hooks/useAuth";
+import { useDiet } from "src/hooks/useDiet";
 
 
 export function generalStatistics() {
-  const { data } = useAuth();
+  const { data } = useDiet();
 
   const totalStatus = data.reduce<StatusDietDTO>((counts, item) => {
     let currentSequenceLength = 0;

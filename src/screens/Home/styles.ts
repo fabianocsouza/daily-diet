@@ -22,8 +22,43 @@ export const Logo = styled.Image`
   height: 55px;
 `;
 export const UserImg = styled.Image`
-  width: 60px;
-  height: 60px;
+  width: 62px;
+  height: 62px;
+  border-radius: 100px;
+  ${ ({ theme }) => css`
+    background-color: ${theme.COLORS.GRAY_500};
+  `};
+`;
+export const ImageButton = styled.TouchableOpacity`
+  width: 70px;
+  height: 70px;
+
+  ${ ({ theme }) => css`
+    background-color: ${theme.COLORS.GRAY_600};
+    border: 4px solid ${theme.COLORS.GRAY_300};
+  `};
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 100px;
+  
+`;
+
+export const ButtonRemovePhoto = styled.TouchableOpacity`
+  width: 64px;
+  height: 40%;
+  background-color: transparent;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+
+  position: absolute;
+  left: 311px;
+  top: 32px
 `;
 
 export const NewDiet = styled.View`

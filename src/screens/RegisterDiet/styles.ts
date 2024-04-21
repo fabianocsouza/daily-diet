@@ -2,6 +2,7 @@ import { Pressable } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { TextInputMask } from "react-native-masked-text";
 
 
 export const Container = styled(SafeAreaView)`
@@ -102,7 +103,7 @@ export const Day = styled.View`
 export const Time = styled.View`
   flex-direction: column;
 `;
-export const InputDate = styled.TextInput`
+export const InputDate = styled(TextInputMask)`
   width: 172px;
   height: 60px;
 
@@ -112,9 +113,11 @@ export const InputDate = styled.TextInput`
     font-size: ${theme.FONT_SIZE.LG}px;
   `};
   border-radius: 6px;
-  padding: 14px;`;
+  padding: 14px;
+  text-align: center;
+  `;
 
-export const InputHours = styled.TextInput`
+export const InputHours = styled(TextInputMask)`
   width: 172px;
   height: 60px;
 
@@ -124,7 +127,9 @@ export const InputHours = styled.TextInput`
     font-size: ${theme.FONT_SIZE.LG}px;
   `};
   border-radius: 6px;
-  padding: 14px;`;
+  padding: 14px;
+  text-align: center;
+  `;
 export const Options = styled.View`
 margin-top: 30px;`;
 

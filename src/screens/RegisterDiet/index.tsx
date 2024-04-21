@@ -1,18 +1,25 @@
-import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
+import {  useEffect, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { ArrowL, ButtonView, Container, Content, Day, DayTime, FormDiet, Header, IconButton, InputDate, InputDescription, InputHours, InputName, LabelText, Options, Time, Title } from './styles';
+import { ArrowL, ButtonView, Container,
+         Content, Day, DayTime, FormDiet, 
+         Header, IconButton, InputDate, 
+         InputDescription, InputHours, 
+         InputName, LabelText, Options, 
+         Time, Title } from './styles';
 
-import { ButtonSelect } from '@components/ButtonSelect';
 import { Button } from '@components/Button';
+import { ButtonSelect } from '@components/ButtonSelect';
+
 import { dietCreate } from '@storage/diet/dietCreate';
-import { AppError } from '@utils/AppError';
-import { Alert } from 'react-native';
-import { useCallback, useEffect, useState } from 'react';
-import { useAuth } from 'src/hooks/useAuth';
-import { DietStorageDTO } from 'src/dtos/DietStorageDTO';
 import { dietUpdate } from '@storage/diet/dietUpdate';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { DIET_COLLECTION } from '@storage/storageConfig';
+
+import { AppError } from '@utils/AppError';
+
+import { useDiet } from '@hooks/useDiet';
+import { DietStorageDTO } from '@dtos/DietStorageDTO';
+import { validateInput } from '@service/validateInput';
+
 
 type Props = {
   edit: boolean;
@@ -21,7 +28,7 @@ type Props = {
 }
 
 export function RegisterDiet(){
-  const { data: authData } = useAuth(); 
+  const { data: dietData } = useDiet(); 
   const  { edit, title, diet } = useRoute().params as Props;
 
   const [ name, setName ] = useState('');
@@ -29,30 +36,31 @@ export function RegisterDiet(){
   const [ date, setDate ] = useState('');
   const [ time, setTime ] = useState('');
   const [ status, setStatus ] = useState(false);
+  
   const [activeOk, setActiveOk ] = useState(false);
   const [activeNo, setActiveNo ] = useState(false);
 
   const navigation = useNavigation();
 
   useEffect(() => {
-    if (edit && authData) {
-      const daily = authData.find(item => item.title === title);
+    if (edit && dietData) {
+      const daily = dietData.find(item => item.title === title);
       if (daily) {
-        const ok = daily.data.find(data => data.name === diet);
-        if (ok) {
-          setName(ok.name);
-          setDescription(ok.description);
-          setDate(ok.date);
-          setTime(ok.time);
-          setStatus(ok.status);
-          // Defina os estados para ativar/desativar os botões conforme necessário
-          setStatus(ok.status);
-          setActiveOk(ok.status);
-          setActiveNo(!ok.status);
+        const data = daily.data.find(data => data.name === diet);
+        if (data) {
+          setName(data.name);
+          setDescription(data.description);
+          setDate(data.date);
+          setTime(data.time);
+          setStatus(data.status);
+   
+          setStatus(data.status);
+          setActiveOk(data.status);
+          setActiveNo(!data.status);
         }
       }
     }
-  }, [edit, authData, title, diet]);
+  }, [edit, dietData, title, diet]);
 
   const handleActionOk = () => {
     setActiveNo(false);
@@ -68,7 +76,7 @@ export function RegisterDiet(){
  async function handleAction() {
     try {
       
-      if(!validateInput()) return;
+      if(!validateInput({name, description, date, time})) return;
 
       const newDiet: DietStorageDTO = {
         name: name,
@@ -88,28 +96,10 @@ export function RegisterDiet(){
       }
 
     } catch (error) {
-      handleAppError(error)
+      AppError.handleAppError(error)
     }
   }
 
-  const validateInput = () => {
-    if (name.trim().length === 0 || description.trim().length === 0 ||
-      date.trim().length === 0 || time.trim().length === 0) {
-      Alert.alert("Nova refeição", "Informe todos os dados necessário da dieta");
-      return false;
-    }
-    return true;
-  }
-
-  const handleAppError = (error: any) => {
-    if (error instanceof AppError) {
-      Alert.alert("Nova refeição", error.message);
-    } else {
-      console.log(error);
-      Alert.alert("Nova refeição", "Não foi possível adicionar!");
-    }
-  }
-  
   return(
     <Container>
       <Header>
@@ -139,17 +129,23 @@ export function RegisterDiet(){
         <Day>
           <LabelText>Data</LabelText>
           <InputDate 
+            type={'datetime'}
+            options={{
+              format: 'DD/MM/YY4',
+            }}
             value={date}
             onChangeText={setDate}
-            placeholder="Data da dieta"
+            placeholder="DD/MM/YY"
           />
         </Day>
         <Time>
             <LabelText>Hora</LabelText>
             <InputHours
+              type={'datetime'}
+              options={{format: 'HH:mm'}}
               value={time}
               onChangeText={setTime}
-              placeholder="hora da dieta"
+              placeholder="HH:mm"
             />
           </Time>
         </DayTime>

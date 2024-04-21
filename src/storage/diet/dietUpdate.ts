@@ -1,7 +1,8 @@
-import { DietStorageDTO } from "src/dtos/DietStorageDTO";
-import { dietGetAll } from "./dietGetAll";
 import { Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { dietGetAll } from "./dietGetAll";
+import { DietStorageDTO } from "@dtos/DietStorageDTO";
 import { DIET_COLLECTION } from "@storage/storageConfig";
 
 export async function dietUpdate(title: string, updateDiet: DietStorageDTO) {
@@ -11,7 +12,7 @@ export async function dietUpdate(title: string, updateDiet: DietStorageDTO) {
     const titleIndex = storedDiets.findIndex((day) => day.title === title);
 
     if(titleIndex !== -1) {
-      const dietIndex =storedDiets[titleIndex].data.findIndex(({name}) => name === updateDiet.name);
+      const dietIndex = storedDiets[titleIndex].data.findIndex(({name}) => name === updateDiet.name);
       if(dietIndex !== -1) {
        storedDiets[titleIndex].data[dietIndex] = updateDiet;
       }else{

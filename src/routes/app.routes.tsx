@@ -2,9 +2,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { Home } from "@screens/Home";
 import { Feedback } from "@screens/Feedback";
-import { RegisterDiet } from "@screens/RegisterDiet";
 import { DailyDiet } from "@screens/DailyDiet";
 import { Statistic } from "@screens/Statistic";
+import { RegisterDiet } from "@screens/RegisterDiet";
 
 export const AppRoute = () => {
   const { Navigator, Screen } = createNativeStackNavigator();

@@ -1,8 +1,10 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { dietGetAll } from "./dietGetAll";
-import { DietStorageDTO } from "../../dtos/DietStorageDTO";
-import { DIET_COLLECTION } from "@storage/storageConfig";
 import { Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { dietGetAll } from "./dietGetAll";
+import { DietStorageDTO } from "@dtos/DietStorageDTO";
+import { DIET_COLLECTION } from "@storage/storageConfig";
+
 
 export async function dietCreate(title: string, newDiet: DietStorageDTO) {
   try {

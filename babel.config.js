@@ -12,7 +12,11 @@ module.exports = function(api) {
             '@components': './src/components',
             '@screens': './src/screens',
             '@storage': './src/storage',
-            '@utils': './src/utils'
+            '@utils': './src/utils',
+            '@service/*': './src/service/*',
+            '@context/*': './src/context/*',
+            '@context/*': './src/context/*',
+            '@dtos/*': './src/dtos/*'
           }
         }
       ],  

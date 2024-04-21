@@ -3,7 +3,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { Card, Card2, Card3, Container, Content, Description, Result, Title, Value} from "./styles";
 
 import { PercentCard } from "@components/PercentCard";
-import { StatusDietDTO } from "src/dtos/StatusDietDTO";
+import { StatusDietDTO } from "@dtos/StatusDietDTO";
 
 type Props = {
   data: StatusDietDTO;

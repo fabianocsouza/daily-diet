@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { DailyStorageDTO } from "../../dtos/DietStorageDTO";
+
+import { DailyStorageDTO } from "@dtos/DietStorageDTO";
 import { DIET_COLLECTION } from "@storage/storageConfig";
 
 export async function dietGetAll() {

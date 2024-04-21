@@ -2,8 +2,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { ButtonHome, ButtonTitle, Container } from "./styles";
 
-import { FeedbackNegative } from "@components/FeedbackCard/FeedbackNegative";
-import { FeedbackPositive } from "@components/FeedbackCard/FeedbackPositive";
+import { FeedbackCard} from "@components/FeedbackCard";
 
 type FeedbackProps ={
   status: boolean;
@@ -15,10 +14,7 @@ export function Feedback(){
 
   return (
     <Container>
-      {status
-      ? <FeedbackPositive status={status} />
-      : <FeedbackNegative status={status} />
-      }
+      <FeedbackCard status={status} />
       <ButtonHome
         onPress={() => navigation.navigate('Home')}
       >

@@ -4,7 +4,6 @@ import { Container } from "./styles";
 
 import { Main } from "./main";
 
-
 export const Home = () => {
 
   return(

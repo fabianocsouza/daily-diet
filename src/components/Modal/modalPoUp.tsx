@@ -1,7 +1,8 @@
 import { Animated, Modal, ViewProps } from "react-native";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useCallback, useRef, useState } from "react";
 
 import { ModalBackground, styles } from "./styles";
+import { useFocusEffect } from "@react-navigation/native";
 
 type Props = ViewProps & {
   visible: boolean;
@@ -10,10 +11,12 @@ type Props = ViewProps & {
 
 export function ModalPoUp({ visible, children }: Props) {
   const [ showModal, setShowModal ] = useState(visible);
+  
   const scaleValue = useRef( new Animated.Value(0)).current;
-  useEffect(() => {
+
+  useFocusEffect( useCallback(() => {
     toggleModal();
-  },[visible])
+  },[visible]))
 
   const toggleModal = () => {
     setShowModal(

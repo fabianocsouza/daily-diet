@@ -31,7 +31,7 @@ export function PercentCard({active,  ...props}: Props) {
    function handleCloseToggle() {
     setTimeout(() => {
       toggleAnimationState.transitionTo("close");
-    }, 1000); // 10 segundos
+    }, 1000);
   }
 
   return (
@@ -44,9 +44,11 @@ export function PercentCard({active,  ...props}: Props) {
        <AnimatePresence
        >
       <Card percent={percent}  state={toggleAnimationState} >
-        {active
+        {
+        active
           ? <ArrowL percent={percent} size={32} />
-        : <ArrowUpR percent={percent} size={32} />}
+          : <ArrowUpR percent={percent} size={32} />
+        }
         <PercentageValue>{percent.toFixed(0)}%</PercentageValue>
         <Description>das refeições dento da dieta</Description>
       </Card>

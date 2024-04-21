@@ -8,7 +8,11 @@
       "@components/*": ["./src/components/*"],
       "@screens/*": ["./src/screens/*"],
       "@storage/*": ["./src/storage/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@service/*": ["./src/service/*"],
+      "@context/*": ["./src/context/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@dtos/*": ["./src/dtos/*"]
     }
   }
 }

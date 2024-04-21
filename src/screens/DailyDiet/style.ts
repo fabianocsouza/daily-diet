@@ -2,6 +2,7 @@ import { Pressable } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 type Props = {
   status?: boolean;
 }

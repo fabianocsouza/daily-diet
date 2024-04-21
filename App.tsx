@@ -6,7 +6,7 @@ import theme from 'src/theme';
 
 import { Loading } from '@components/Loading';
 import { Routes } from 'src/routes';
-import { AuthContextProvider } from 'src/contexts/AuthContext';
+import { DietContextProvider } from 'src/contexts/DietContext';
 
 export default function App() {
   const  [fontsLoaded ] = useFonts({NunitoSans_400Regular, NunitoSans_700Bold});
@@ -17,9 +17,9 @@ export default function App() {
         backgroundColor='transparent'
         translucent
       />
-      <AuthContextProvider>
+      <DietContextProvider>
         {fontsLoaded ? <Routes /> : <Loading/> }
-      </AuthContextProvider>
+      </DietContextProvider>
     </ThemeProvider>
     
   );

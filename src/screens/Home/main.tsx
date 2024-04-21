@@ -1,37 +1,100 @@
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { useCallback, useRef, useState } from "react";
-import { Header, Logo, NewDiet, Title, TitleDailyDiet, UserImg } from "./styles";
-import { PercentCard } from "@components/PercentCard";
-import { Button } from "@components/Button";
-import { Plus } from "phosphor-react-native";
-import { SectionList } from "react-native";
-import theme from "src/theme";
-import { dietGetAll } from "@storage/diet/dietGetAll";
+import * as ImagePicker from 'expo-image-picker';
+import { Alert, SectionList } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { Camera, Plus, UserCircleMinus } from "phosphor-react-native";
 
-import { useAuth } from "src/hooks/useAuth";
+import { ButtonRemovePhoto, Header, ImageButton, Logo, NewDiet, Title, TitleDailyDiet, UserImg } from "./styles";
+
+import { Button } from "@components/Button";
+import { DietCard } from "@components/DietCard";
+import { PercentCard } from "@components/PercentCard";
+
+import theme from "src/theme";
 
 import logoImg from '@assets/Logo.png';
-import userImg from '@assets/Ellipse.png';
-import { DietCard } from "@components/DietCard";
-import { DAILY_DIET } from "@utils/data";
-import { DailyStorageDTO } from "src/dtos/DietStorageDTO";
-import { generalStatistics } from "src/service/generalStatistics";
-import { updateData } from "src/service/updateData";
+
+import { updateData } from "@service/updateData";
+import { generalStatistics } from "@service/generalStatistics";
+import { photoGet } from "@storage/photo/photoGet";
+import { photoCreate } from "@storage/photo/photoCreate";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { PHOTO_COLLECTION } from "@storage/storageConfig";
 
 export function Main() {
-  const sectionListRef = useRef<SectionList>(null)
-
+  const sectionListRef = useRef<SectionList>(null);
   const navigation = useNavigation();
+  const [image, setImage] = useState('')
 
   const totalStatus = generalStatistics();
- 
   const dailyDiet = updateData();
+
+  async function handleSelectImage(){
+    try {
+      const imageURI = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [4,4]
+      })
+
+      if(imageURI.assets){
+          const photo = imageURI.assets[0].uri;
+        setImage(photo)
+        await photoCreate(photo); 
+      }
+      
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Foto','Não foi possível selecionar a imagem.');
+    }
+  }
+
+  async function handleRemovePhoto(){
+    await AsyncStorage.removeItem(PHOTO_COLLECTION);
+    setImage('');
+    imageData();
+  }
+
+  async function imageData(){
+    const photo = await photoGet();
+    if(photo){
+      setImage(photo)
+    }
+}
+
+useEffect(() => {
+  imageData()
+},[]);
 
   return (
     <>
       <Header>
             <Logo source={logoImg} />
-            <UserImg source={userImg} />
+           { 
+            image
+            ? (
+                <>
+                  <ImageButton
+                    activeOpacity={0.9}
+                    onPress={handleSelectImage}
+                  >
+                    <UserImg source={{uri: image}} />
+                 </ImageButton>
+                 <ButtonRemovePhoto
+                  onPress={handleRemovePhoto}
+                 >
+                    <UserCircleMinus size={26}  color={theme.COLORS.WHITE_50}/>
+                 </ButtonRemovePhoto>
+                </>
+              )
+            : ( <ImageButton
+                  activeOpacity={0.9}
+                  onPress={handleSelectImage}
+                 >
+                  <Camera size={32} color={theme.COLORS.GRAY_300} />
+                </ImageButton>
+              )
+            }
           </Header>
           <PercentCard active={false} onPress={()=> navigation.navigate('Statistic', {data: totalStatus})}/>
           <NewDiet>
