@@ -3,7 +3,6 @@
 <table>
   <tr>
     <td><img width="600" height="400" src="https://github.com/fabianocsouza/daily-diet/assets/57264174/f13cba7a-3144-4d6f-97aa-5682b1dcad8b" alt="Imagem 1"></td>
-    <td></td>
     <td><img width="366" height="734"src="https://github.com/fabianocsouza/daily-diet/assets/57264174/7637fa58-73c1-4a26-b04b-a35d0a750618"" alt="Imagem 2"></td>
   </tr>
 </table>
