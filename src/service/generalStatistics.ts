@@ -1,30 +1,37 @@
-import { StatusDietDTO } from "src/dtos/StatusDietDTO";
-import { useDiet } from "src/hooks/useDiet";
-
+import { useDiet } from "@hooks/useDiet";
+import { StatusDietDTO } from "@dtos/StatusDietDTO";
 
 export function generalStatistics() {
   const { data } = useDiet();
 
-  const totalStatus = data.reduce<StatusDietDTO>((counts, item) => {
-    let currentSequenceLength = 0;
-    let maxSequenceLength = 0;
-    
-    item.data.forEach(obj => {
-      if(obj.status){
-        counts.positive++
+  let currentSequenceLength = 0;
+  let maxSequenceLength = 0;
+  let positive = 0;
+  let negative = 0;
+  let total = 0;
+
+  data.forEach((day) => {    
+    day.data.forEach(item => {
+      if(item.status){
+        positive++
         currentSequenceLength++
         maxSequenceLength = Math.max(maxSequenceLength, currentSequenceLength);
       }else{
-        currentSequenceLength = 0
-        counts.negative++
+        currentSequenceLength = 0;
+        negative++
       }
-      counts.total++
-      counts.bestSequence = maxSequenceLength;
-    })
-    counts.percent = ((counts.positive / counts.total) * 100);
-    
-    return counts;
-  }, {positive: 0, negative: 0, total: 0, percent: 0, bestSequence: 0});
+      total++
+    });
+  });
 
+  const percent = (positive / total) * 100 || 0;
+  const totalStatus: StatusDietDTO = {
+    positive: positive,
+    negative: negative,
+    total: total,
+    percent: percent,
+    bestSequence: maxSequenceLength
+  }
+    
   return totalStatus;
 }

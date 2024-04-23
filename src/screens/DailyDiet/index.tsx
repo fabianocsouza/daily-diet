@@ -3,6 +3,7 @@ import { PencilSimpleLine, Trash } from "phosphor-react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import theme from "src/theme";
+
 import { 
   ArrowL, Container, Content,
    DateHours, DateHoursTitle, Description, 

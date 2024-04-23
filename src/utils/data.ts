@@ -37,24 +37,24 @@ export const DAILY_DIET = [
     data:[
       {
         name:"X-tudo",
-        description: "Xis completo da lancheria do bairro",
+        description: "Hamburger com ou sem gergelim",
         date: "12/04/24",
         hours: "20:00",
         status: false
       },
       {
-        name:"Whey protein com leite",
-        description: "Tomar com um carboidrato",
+        name:"Whey protein",
+        description: "Consumir com uma fruta",
         date: "13/04/24",
         hours: "16:00",
         status: true
       },
       {
-        name:"Salada cesar com frango grelhado",
-        description: "Com molho branco",
+        name:"Caesar salad com frango grelhado",
+        description: "Coloque as as tiras de peito de frango já grelhadas e mornas ou frias por cima.",
         date: "13/04/24",
         hours: "12:30",
-        status: false
+        status: true
       },
       {
         name:"Vitamina de banana com abacate",

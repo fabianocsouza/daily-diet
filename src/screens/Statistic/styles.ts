@@ -37,9 +37,9 @@ export const Title = styled.Text`
   `}
 
   margin-bottom: 30px;
-
 `;
-export const Card = styled.View`
+
+export const CardGray = styled.View`
   width: 100%;
   height: 102px;
 
@@ -52,6 +52,7 @@ export const Card = styled.View`
 
   margin-bottom: 16px;
 `;
+
 export const Value = styled.Text`
   ${({theme}) => css`
     color: ${theme.COLORS.GRAY_100};
@@ -59,6 +60,7 @@ export const Value = styled.Text`
     font-size: ${theme.FONT_SIZE.XL}px;
   `}
 `;
+
 export const Description = styled.Text`
   ${({theme}) => css`
     color: ${theme.COLORS.GRAY_200};
@@ -74,8 +76,9 @@ export const Result = styled.View`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-`
-export const Card2 = styled.View`
+`;
+
+export const CardGreen= styled.View`
   width: 170px;
   height: 120px;
   
@@ -88,7 +91,7 @@ export const Card2 = styled.View`
   
 `;
 
-export const Card3 = styled.View`
+export const CardRed = styled.View`
   width: 170px;
   height: 120px;
 

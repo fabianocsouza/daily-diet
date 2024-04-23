@@ -18,6 +18,7 @@ export const Container = styled(Pressable)`
 type Props = {
   percent: number;
 }
+
 export const Card = styled(MotiView)<Props>`
   width: 380px;
   height: 102px;
@@ -47,6 +48,7 @@ export const ArrowL = styled(ArrowLeft).attrs({
   top: 10px;
   position: absolute;
 `
+
 export const ArrowUpR = styled(ArrowUpRight).attrs({
   size: 24,
 })<Props>`
@@ -57,7 +59,6 @@ export const ArrowUpR = styled(ArrowUpRight).attrs({
   };
   left: 164px;
   top: 10px;
-  
 `
 
 export const PercentageValue = styled.Text`

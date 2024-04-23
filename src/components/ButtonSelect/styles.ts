@@ -2,7 +2,7 @@ import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 
 type Props = {
-  active: boolean;
+  active?: boolean;
   status?: boolean;
 }
 
@@ -10,20 +10,20 @@ export const Container = styled(TouchableOpacity)<Props>`
   width: 175px;
   height: 60px;
   ${({theme, active, status }) => css`
-  background-color:  ${ 
-      active 
-        ? ( status? theme.COLORS.GREEN_LIGHT: theme.COLORS.RED_LIGHT)
-        : theme.COLORS.GRAY_600
-      };
+    background-color:  ${ 
+        active 
+          ? ( status? theme.COLORS.GREEN_LIGHT: theme.COLORS.RED_LIGHT)
+          : theme.COLORS.GRAY_600
+        };
 
-  border: 1px solid ${ 
-      active 
-        ?( status
-          ? theme.COLORS.GREEN_DARK
-          :theme.COLORS.RED_DARK
-        )
-        : theme.COLORS.GRAY_600
-      };
+    border: 1px solid ${ 
+        active 
+          ?( status
+            ? theme.COLORS.GREEN_DARK
+            : theme.COLORS.RED_DARK
+          )
+          : theme.COLORS.GRAY_600
+        };
   `}
 
   border-radius: 6px;
@@ -39,10 +39,8 @@ export const Name = styled.Text`
     font-size: ${theme.FONT_SIZE.MD}px;
   `}
 `;
-type StatusProps = {
-  status?: boolean;
-}
-export const Status = styled.View<StatusProps>`
+
+export const Status = styled.View<Props>`
   width: 10px;
   height: 10px;
 
@@ -52,7 +50,7 @@ export const Status = styled.View<StatusProps>`
   : theme.COLORS.RED_DARK
 };
 
-  border-radius: 50%;
+  border-radius: 100px;
 
   right: 10px;
 `;

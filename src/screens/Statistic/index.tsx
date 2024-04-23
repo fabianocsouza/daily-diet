@@ -1,6 +1,7 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-import { Card, Card2, Card3, Container, Content, Description, Result, Title, Value} from "./styles";
+import { CardGray, CardGreen, CardRed, Container, Content,
+         Description, Result, Title, Value} from "./styles";
 
 import { PercentCard } from "@components/PercentCard";
 import { StatusDietDTO } from "@dtos/StatusDietDTO";
@@ -19,23 +20,23 @@ export const Statistic = () => {
       <PercentCard active onPress={()=>navigation.goBack()} />
       <Content>
         <Title>Estatísticas gerais</Title>
-        <Card>
+        <CardGray>
           <Value>{data.bestSequence}</Value>
           <Description>melhor sequência de pratos dentro da dieta</Description>
-        </Card>
-        <Card>
+        </CardGray>
+        <CardGray>
           <Value>{data.total}</Value>
           <Description>refeições registradas</Description>
-        </Card>
+        </CardGray>
         <Result>
-          <Card2>
+          <CardGreen>
             <Value>{data.positive}</Value>
             <Description>refeições dentro da dieta</Description>
-          </Card2>
-          <Card3>
+          </CardGreen>
+          <CardRed>
             <Value>{data.negative}</Value>
             <Description>refeições fora da dieta</Description>
-          </Card3>
+          </CardRed>
         </Result>
       </Content>
     </Container>

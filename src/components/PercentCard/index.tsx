@@ -3,7 +3,7 @@ import { AnimatePresence, useAnimationState } from 'moti';
 
 import { ArrowL, ArrowUpR, Card, Container, Description, PercentageValue } from './style';
 
-import { generalStatistics } from 'src/service/generalStatistics';
+import { generalStatistics } from '@service/generalStatistics';
 
 type Props = PressableProps & {
   active: boolean;

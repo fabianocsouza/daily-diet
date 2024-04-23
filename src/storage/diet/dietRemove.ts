@@ -1,8 +1,9 @@
+import { Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { dietGetAll } from "./dietGetAll";
+
 import { DIET_COLLECTION } from "@storage/storageConfig";
-import { Alert } from "react-native";
 
 export async function dietRemove( diet: string, title: string ) {
   try {
@@ -11,15 +12,15 @@ export async function dietRemove( diet: string, title: string ) {
 
     const dailyDietIndex = storage.findIndex((diet) => diet.title === title);
 
-    const dietsPorIndex = storage[dailyDietIndex].data.filter((item) => item.name !== diet);
+    const dietsIndex = storage[dailyDietIndex].data.filter((item) => item.name !== diet);
     
     if (dailyDietIndex !== -1) {
       
-      if (!dietsPorIndex.length) {
+      if (!dietsIndex.length) {
         
         storage.splice(dailyDietIndex, 1);
       } else {
-        storage[dailyDietIndex].data = dietsPorIndex;
+        storage[dailyDietIndex].data = dietsIndex;
       }
      
       await AsyncStorage.setItem(DIET_COLLECTION,JSON.stringify(storage));

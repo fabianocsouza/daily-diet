@@ -1,9 +1,12 @@
-import { Pressable } from "react-native";
+import { Pressable, TextInput } from "react-native";
 import { ArrowLeft } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { TextInputMask } from "react-native-masked-text";
+import { SafeAreaView } from "react-native-safe-area-context";
 
+type FormBorderStyleProps = {
+  isActive?: string;
+}
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
@@ -21,6 +24,7 @@ export const Header = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
 export const IconButton = styled(Pressable)`
   right: 100px;
 `;
@@ -62,12 +66,12 @@ export const LabelText = styled.Text`
   `}
 `;
 
-export const InputName = styled.TextInput`
+export const InputName = styled(TextInput)<FormBorderStyleProps>`
   width: 100%;
   height: 60px;
 
-  ${({theme}) => css`
-    border:  1px solid ${({theme}) => theme.COLORS.GRAY_500};
+  ${({theme, isActive}) => css`
+    border:  1.5px solid ${ isActive === 'InputName' ? theme.COLORS.GRAY_300 : theme.COLORS.GRAY_500};
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.LG}px;
   `};
@@ -76,20 +80,22 @@ export const InputName = styled.TextInput`
 
   margin-bottom: 20px;
 `;
-export const InputDescription = styled.TextInput.attrs({
+
+export const InputDescription = styled.TextInput.attrs<FormBorderStyleProps>({
   multiline: true,
   numberOfLines: 4,
   maxLength: 200,
 })`
   width: 100%;
   height: 142px;
-  ${({theme}) => css`
-    border:  1px solid ${({theme}) => theme.COLORS.GRAY_500};
+  ${({theme, isActive}) => css`
+    border:  1.5px solid ${ isActive === 'InputDescription' ? theme.COLORS.GRAY_300 : theme.COLORS.GRAY_500};
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.LG}px;
   `};
   border-radius: 6px;
-  padding: 14px;`;
+  padding: 14px;
+  `;
 
 export const DayTime = styled.View`
   margin-top: 30px;
@@ -100,15 +106,17 @@ export const DayTime = styled.View`
 export const Day = styled.View`
   flex-direction: column;
 `;
+
 export const Time = styled.View`
   flex-direction: column;
 `;
-export const InputDate = styled(TextInputMask)`
+
+export const InputDate = styled(TextInputMask)<FormBorderStyleProps>`
   width: 172px;
   height: 60px;
 
-  ${({theme}) => css`
-    border:  1px solid ${({theme}) => theme.COLORS.GRAY_500};
+  ${({theme, isActive}) => css`
+    border:  1.5px solid ${ isActive === 'InputDate' ? theme.COLORS.GRAY_300 : theme.COLORS.GRAY_500};
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.LG}px;
   `};
@@ -117,12 +125,12 @@ export const InputDate = styled(TextInputMask)`
   text-align: center;
   `;
 
-export const InputHours = styled(TextInputMask)`
+export const InputHours = styled(TextInputMask)<FormBorderStyleProps>`
   width: 172px;
   height: 60px;
 
-  ${({theme}) => css`
-    border:  1px solid ${({theme}) => theme.COLORS.GRAY_500};
+  ${({theme, isActive}) => css`
+    border:  1.5px solid ${ isActive === 'InputHours' ? theme.COLORS.GRAY_300 : theme.COLORS.GRAY_500};
     font-family: ${theme.FONT_FAMILY.REGULAR};
     font-size: ${theme.FONT_SIZE.LG}px;
   `};
@@ -130,6 +138,7 @@ export const InputHours = styled(TextInputMask)`
   padding: 14px;
   text-align: center;
   `;
+  
 export const Options = styled.View`
 margin-top: 30px;`;
 

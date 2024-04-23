@@ -20,10 +20,10 @@ export const Title = styled.Text<Props>`
   };
   `}
 `;
+
 export const Description = styled.Text`
   width: 350px;
   text-align: center;
-
 
   ${({theme}) => css`
     font-family: ${theme.FONT_FAMILY.REGULAR};
@@ -35,13 +35,12 @@ export const Description = styled.Text`
 `;
 
 export const Span = styled.Text`
-${({theme}) => css`
-  font-family: ${theme.FONT_FAMILY.BOLD};
-  font-size: ${theme.FONT_SIZE.LG}px;
-  color: ${theme.COLORS.GRAY_100};
-`}
+  ${({theme}) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.LG}px;
+    color: ${theme.COLORS.GRAY_100};
+  `}
 `;
-
 
 export const StatusImage = styled.Image`
   width: 260px;

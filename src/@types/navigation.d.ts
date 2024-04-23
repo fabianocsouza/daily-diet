@@ -5,9 +5,7 @@ declare global {
   namespace ReactNavigation {
     interface RootParamList {
       Home: undefined;
-      Statistic: {
-                    data: StatusDietDTO;
-                  }
+      Statistic: {data: StatusDietDTO;}
       Register: { 
                   edit: boolean;
                   title?: string;

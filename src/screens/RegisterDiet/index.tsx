@@ -1,12 +1,9 @@
-import {  useEffect, useState } from 'react';
+import {  useEffect, useRef, useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { ArrowL, ButtonView, Container,
-         Content, Day, DayTime, FormDiet, 
-         Header, IconButton, InputDate, 
-         InputDescription, InputHours, 
-         InputName, LabelText, Options, 
-         Time, Title } from './styles';
+import { ArrowL, ButtonView, Container, Content, Day,
+         DayTime, FormDiet, Header, IconButton, InputDate, InputDescription,
+         InputHours, InputName, LabelText, Options, Time, Title } from './styles';
 
 import { Button } from '@components/Button';
 import { ButtonSelect } from '@components/ButtonSelect';
@@ -31,6 +28,8 @@ export function RegisterDiet(){
   const { data: dietData } = useDiet(); 
   const  { edit, title, diet } = useRoute().params as Props;
 
+  const ref = useRef<any>(null);
+
   const [ name, setName ] = useState('');
   const [ description, setDescription ] = useState('');
   const [ date, setDate ] = useState('');
@@ -39,6 +38,8 @@ export function RegisterDiet(){
   
   const [activeOk, setActiveOk ] = useState(false);
   const [activeNo, setActiveNo ] = useState(false);
+  const [isFocused, setIsFocused] = useState('');
+
 
   const navigation = useNavigation();
 
@@ -72,6 +73,14 @@ export function RegisterDiet(){
     setActiveNo(true);
     setStatus(false);
   }
+
+  const handleFocus = (inputName: string) => {
+    setIsFocused(inputName);
+  };
+
+  const handleBlur = () => {
+    setIsFocused('');
+  };
 
  async function handleAction() {
     try {
@@ -114,12 +123,18 @@ export function RegisterDiet(){
       <FormDiet>
         <LabelText>Nome</LabelText>
         <InputName
+          onFocus={() => handleFocus('InputName')}
+          onBlur={handleBlur}
+          isActive={isFocused}
           value={name}
           onChangeText={setName}
           placeholder="Nome da dieta"
         />
         <LabelText>Descrição</LabelText>
         <InputDescription
+          onFocus={() => handleFocus('InputDescription')}
+          onBlur={handleBlur}
+          isActive={isFocused}
           value={description}
           onChangeText={setDescription}
           placeholder="Descrição da dieta"
@@ -129,6 +144,9 @@ export function RegisterDiet(){
         <Day>
           <LabelText>Data</LabelText>
           <InputDate 
+            onFocus={() => handleFocus('InputDate')}
+            onBlur={handleBlur}
+            isActive={isFocused}
             type={'datetime'}
             options={{
               format: 'DD/MM/YY4',
@@ -141,6 +159,9 @@ export function RegisterDiet(){
         <Time>
             <LabelText>Hora</LabelText>
             <InputHours
+              onFocus={() => handleFocus('InputHours')}
+              onBlur={handleBlur}
+              isActive={isFocused}
               type={'datetime'}
               options={{format: 'HH:mm'}}
               value={time}

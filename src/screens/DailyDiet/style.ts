@@ -16,12 +16,14 @@ export const Container = styled(SafeAreaView)<Props>`
   : theme.COLORS.RED_LIGHT
 };
 `;
+
 export const Header = styled.View`
   margin-top: 15px;
   align-items: center;
   flex-direction: row;
   justify-content: center;
 `;
+
 export const IconButton = styled(Pressable)`
   right: 130px;
 `;
@@ -31,6 +33,7 @@ export const ArrowL = styled(ArrowLeft).attrs({
 })`
   color: ${({theme}) => theme.COLORS.GRAY_200};
 `;
+
 export const Title = styled.Text`
   ${({theme}) => css`
     font-family: ${theme.FONT_FAMILY.BOLD};
@@ -38,6 +41,7 @@ export const Title = styled.Text`
     color: ${theme.COLORS.GRAY_200};
   `};
 `;
+
 export const Content = styled.View`
   width: 100%;
   height: 100%;
@@ -55,6 +59,7 @@ export const TitleDiet = styled.Text`
     color: ${theme.COLORS.GRAY_100};
   `};
 `;
+
 export const Description = styled.Text`
   ${({theme}) => css`
     font-family: ${theme.FONT_FAMILY.REGULAR};
@@ -62,6 +67,7 @@ export const Description = styled.Text`
     color: ${theme.COLORS.GRAY_200};
   `};
 `;
+
 export const DateHoursTitle = styled.Text`
   margin-top: 15px;
 
@@ -71,6 +77,7 @@ export const DateHoursTitle = styled.Text`
     color: ${theme.COLORS.GRAY_100};
   `};
 `;
+
 export const DateHours = styled.Text`
    margin-top: 10px;
 
@@ -82,6 +89,7 @@ export const DateHours = styled.Text`
 
   margin-bottom: 30px;
 `;
+
 export const StatusView = styled.View`
   width: 150px;
   height: 40px;
@@ -96,6 +104,7 @@ export const StatusView = styled.View`
 
   margin-bottom: 350px;
 `;
+
 export const StatusDescription = styled.Text`
   ${({theme}) => css`
     font-family: ${theme.FONT_FAMILY.REGULAR};
@@ -103,7 +112,6 @@ export const StatusDescription = styled.Text`
     color: ${theme.COLORS.GRAY_100};
   `};
 `;
-
 
 export const Status = styled.View<Props>`
   width: 8px;

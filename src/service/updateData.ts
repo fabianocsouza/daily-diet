@@ -1,14 +1,13 @@
-import { useFocusEffect } from "@react-navigation/native";
-import { dietGetAll } from "@storage/diet/dietGetAll";
 import { useCallback, useState } from "react";
-import { DailyStorageDTO } from "src/dtos/DietStorageDTO";
-import { useDiet } from "src/hooks/useDiet";
+import { useFocusEffect } from "@react-navigation/native";
+
+import { useDiet } from "@hooks/useDiet";
+import { dietGetAll } from "@storage/diet/dietGetAll";
+import { DailyStorageDTO } from "@dtos/DietStorageDTO";
 
 export function updateData() {
-
   const [ dailyDiet, setDailyDiets ] = useState<DailyStorageDTO[]>([]);
   const { refreshData } =  useDiet();
-
 
   async function fetchDailyDiet(){
     try {

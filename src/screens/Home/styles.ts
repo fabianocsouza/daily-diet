@@ -21,6 +21,7 @@ export const Logo = styled.Image`
   width: 120px;
   height: 55px;
 `;
+
 export const UserImg = styled.Image`
   width: 62px;
   height: 62px;
@@ -29,6 +30,7 @@ export const UserImg = styled.Image`
     background-color: ${theme.COLORS.GRAY_500};
   `};
 `;
+
 export const ImageButton = styled.TouchableOpacity`
   width: 70px;
   height: 70px;
@@ -53,17 +55,17 @@ export const ButtonRemovePhoto = styled.TouchableOpacity`
   justify-content: flex-end;
   margin-top: 10px;
 
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
 
   position: absolute;
   left: 311px;
-  top: 32px
+  top: 32px;
 `;
 
 export const NewDiet = styled.View`
   margin-bottom: 30px;
-`
+`;
 
 export const Title = styled.Text`
   margin-top: 40px;

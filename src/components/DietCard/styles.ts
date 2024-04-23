@@ -16,11 +16,13 @@ export const Container = styled(Pressable)`
   justify-content: space-between;
   
 `;
+
 export const DailyView = styled.View`
   align-items: center;
   flex-direction: row;
   width: 300px;
 `;
+
 export const Hours = styled.Text`
   ${({theme}) => css`
       font-family: ${theme.FONT_FAMILY.BOLD};
@@ -29,6 +31,7 @@ export const Hours = styled.Text`
   `}
   margin-right: 8px;
 `;
+
 export const Separator = styled.View`
   width: 0;
   height: 16px;
@@ -37,6 +40,7 @@ export const Separator = styled.View`
 
   border: 0.8px solid ${({theme}) => theme.COLORS.GRAY_400};
 `;
+
 export const Title = styled.Text`
    ${({theme}) => css`
       font-family: ${theme.FONT_FAMILY.REGULAR};
@@ -44,10 +48,13 @@ export const Title = styled.Text`
       color: ${theme.COLORS.GRAY_200};
   `}
 `;
+
 export const StatusView = styled.View``;
+
 type Props = {
   status: boolean;
 }
+
 export const Status = styled.View<Props>`
   width: 14px;
   height: 15px;
