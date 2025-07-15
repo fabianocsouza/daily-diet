@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components/native";
 import theme from "@/theme";
 
 import { Home } from "@/screens/Home";
+import { SafeAreaView, StatusBar } from "react-native";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
@@ -17,7 +18,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      <StatusBar barStyle={"dark-content"} backgroundColor="transparent" />
+      <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.GRAY_600 }}>
+        <Home />
+      </SafeAreaView>
     </ThemeProvider>
   );
 }
