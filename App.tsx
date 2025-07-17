@@ -3,24 +3,22 @@ import {
   NunitoSans_700Bold,
   useFonts,
 } from "@expo-google-fonts/nunito-sans";
+import { SafeAreaView, StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 
-import theme from "@/theme";
+import { Loading } from "@/components/Loading";
 
-import { Home } from "@/screens/Home";
-import { SafeAreaView, StatusBar } from "react-native";
+import { Routes } from "@/router";
+import theme from "@/theme";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
-  if (!fontsLoaded) {
-    return null;
-  }
 
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle={"dark-content"} backgroundColor="transparent" />
-      <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.GRAY_600 }}>
-        <Home />
+      <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.GRAY_700 }}>
+        {fontsLoaded ? <Routes /> : <Loading />}
       </SafeAreaView>
     </ThemeProvider>
   );

@@ -1,11 +1,12 @@
-import logoImg from "@/assets/logo.png";
-
-import { Container, Header, Logo } from "./styles";
-
+import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 
+import logoImg from "@/assets/logo.png";
+
 import { ButtonPhoto } from "@/components/ButtonPhoto";
-import { useState } from "react";
+import { CardStatics } from "@/components/CardStatics";
+
+import { Container, Header, Logo } from "./styles";
 
 export function Home() {
   const [image, setImage] = useState<string | null>(null);
@@ -28,6 +29,7 @@ export function Home() {
         <Logo source={logoImg} />
         <ButtonPhoto image={image} onPress={pickImage} />
       </Header>
+      <CardStatics />
     </Container>
   );
 }
