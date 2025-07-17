@@ -1,7 +1,7 @@
 import { Pressable } from "react-native";
-import Feather from "@expo/vector-icons/Feather";
 
 import styled, { css } from "styled-components/native";
+import { User } from "phosphor-react-native";
 
 export const Container = styled(Pressable)`
   width: 55px;
@@ -27,7 +27,7 @@ export const Photo = styled.Image`
   border-radius: 50%;
 `;
 
-export const Icon = styled(Feather).attrs(({ theme }) => ({
+export const Icon = styled(User).attrs(({ theme }) => ({
   color: theme.COLORS.GRAY_200,
   size: 24,
 }))``;

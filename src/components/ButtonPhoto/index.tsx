@@ -9,7 +9,7 @@ type Props = PressableProps & {
 export function ButtonPhoto({ image, ...rest }: Props) {
   return (
     <Container {...rest}>
-      {!image ? <Icon name="user" /> : <Photo source={{ uri: image }} />}
+      {!image ? <Icon /> : <Photo source={{ uri: image }} />}
     </Container>
   );
 }
