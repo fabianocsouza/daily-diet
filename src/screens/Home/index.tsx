@@ -6,10 +6,14 @@ import logoImg from "@/assets/logo.png";
 import { ButtonPhoto } from "@/components/ButtonPhoto";
 import { CardStatics } from "@/components/CardStatics";
 
-import { Container, Header, Logo } from "./styles";
+import { Container, Header, Logo, Title } from "./styles";
+import { Button } from "@/components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
   const [image, setImage] = useState<string | null>(null);
+
+  const navigation = useNavigation();
 
   async function pickImage() {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -29,7 +33,14 @@ export function Home() {
         <Logo source={logoImg} />
         <ButtonPhoto image={image} onPress={pickImage} />
       </Header>
+
       <CardStatics />
+
+      <Title>Refeições</Title>
+      <Button
+        title="Nova refeição"
+        onPress={() => navigation.navigate("meal")}
+      />
     </Container>
   );
 }
