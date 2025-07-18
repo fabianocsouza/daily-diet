@@ -2,7 +2,7 @@ import {
   ButtonCard,
   Container,
   Content,
-  Icon,
+  IconII,
   SubTitle,
   Title,
 } from "./styles";
@@ -20,7 +20,7 @@ export function CardStatics() {
           <Title>90,86%</Title>
           <SubTitle>das refeições dentro da dieta</SubTitle>
         </Content>
-        <Icon />
+        <IconII />
       </ButtonCard>
     </Container>
   );

@@ -1,7 +1,6 @@
 import { TouchableOpacity } from "react-native";
+import { ArrowUpLeft, ArrowUpRight } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { ArrowUpRight } from "phosphor-react-native";
 
 export const Container = styled.View`
   flex: 1;
@@ -10,14 +9,6 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.View``;
-
-export const Icon = styled(ArrowUpRight).attrs(({ theme }) => ({
-  size: 32,
-  color: theme.COLORS.GREEN_DARK,
-}))`
-  top: -32px;
-  left: 65px;
-`;
 
 export const ButtonCard = styled(TouchableOpacity)`
   width: "100%";
@@ -46,4 +37,20 @@ export const SubTitle = styled.Text`
   `}
 
   text-align: center;
+`;
+
+export const IconI = styled(ArrowUpRight).attrs(({ theme }) => ({
+  size: 32,
+  color: theme.COLORS.GREEN_DARK,
+}))`
+  top: -32px;
+  left: 65px;
+`;
+
+export const IconII = styled(ArrowUpLeft).attrs(({ theme }) => ({
+  size: 32,
+  color: theme.COLORS.GREEN_DARK,
+}))`
+  top: -32px;
+  left: 65px;
 `;

@@ -17,9 +17,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle={"dark-content"} backgroundColor="transparent" />
-      <SafeAreaView style={{ flex: 1, backgroundColor: theme.COLORS.GRAY_700 }}>
-        {fontsLoaded ? <Routes /> : <Loading />}
-      </SafeAreaView>
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }
