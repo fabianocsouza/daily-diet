@@ -1,5 +1,3 @@
-import { ArrowLeft } from "phosphor-react-native";
-import { TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { css } from "styled-components/native";
 
@@ -18,24 +16,6 @@ export const Form = styled.View`
   padding: 50px 24px 0px;
 
   gap: 10px;
-`;
-
-export const ButtonGoBack = styled(TouchableOpacity)`
-  left: -100px;
-`;
-export const Header = styled.View`
-  padding: 24px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Title = styled.Text`
-  ${({ theme }) => css`
-    font-size: ${theme.COLORS.FONT_SIZE.XL}px;
-    font-family: ${theme.COLORS.FONT_FAMILY.BOLD};
-    color: ${theme.COLORS.GRAY_100};
-  `}
 `;
 
 export const Label = styled.Text`
@@ -109,8 +89,3 @@ export const DietCheck = styled.View`
   justify-content: space-between;
   margin-bottom: 130px;
 `;
-
-export const Icon = styled(ArrowLeft).attrs(({ theme }) => ({
-  size: 32,
-  color: theme.COLORS.GRAY_200,
-}))``;

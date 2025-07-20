@@ -1,13 +1,12 @@
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
 import {
-  ButtonGoBack,
   Container,
   Today,
   DateInfo,
-  Header,
   Hours,
-  Icon,
   Label,
-  Title,
   InputName,
   InputDescription,
   InputHours,
@@ -15,10 +14,10 @@ import {
   DietCheck,
   Form,
 } from "./styles";
-import { useNavigation } from "@react-navigation/native";
+
 import { Button } from "@/components/Button";
+import { Header } from "@/components/Header";
 import { ButtonCheck } from "@/components/ButtonCheck";
-import { useState } from "react";
 
 export function NewMeal() {
   const [isCheck, setIsCheck] = useState<"NÃO" | "SIM">();
@@ -27,12 +26,7 @@ export function NewMeal() {
 
   return (
     <Container>
-      <Header>
-        <ButtonGoBack onPress={() => navigation.goBack()}>
-          <Icon />
-        </ButtonGoBack>
-        <Title>Nova Refeição</Title>
-      </Header>
+      <Header title="Nova Refeição" />
 
       <Form>
         <Label>Nome</Label>
