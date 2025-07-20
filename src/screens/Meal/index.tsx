@@ -4,6 +4,7 @@ import {
   Content,
   Description,
   DescriptionDate,
+  Footer,
   InfoStatus,
   Status,
   SubTitle,
@@ -18,16 +19,12 @@ import { useNavigation } from "@react-navigation/native";
 export function Meal() {
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
-  function handle() {
-    console.log(1);
-  }
   return (
     <Container status="SIM">
       <Header
         title="Refeição"
         onPress={() => {
-          console.log("clicou no header");
-          navigation.goBack();
+          navigation.navigate("home");
         }}
       />
       <Content>
@@ -47,23 +44,28 @@ export function Meal() {
           <Text>dentro da dieta</Text>
         </InfoStatus>
 
-        <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+        {modalVisible && (
+          <Modal
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+          />
+        )}
 
-        <Button
-          title="Editar refeição"
-          name="pencil"
-          isIcon
-          onPress={() => navigation.navigate("form", { edit: true })}
-          style={{ top: -80 }}
-        />
-        <Button
-          title="Excluir refeição"
-          name="trash"
-          isIcon
-          mode="light"
-          onPress={() => setModalVisible(true)}
-          style={{ top: -80 }}
-        />
+        <Footer>
+          <Button
+            title="Editar refeição"
+            name="pencil"
+            isIcon
+            onPress={() => navigation.navigate("form", { edit: true })}
+          />
+          <Button
+            title="Excluir refeição"
+            name="trash"
+            isIcon
+            mode="light"
+            onPress={() => setModalVisible(true)}
+          />
+        </Footer>
       </Content>
     </Container>
   );

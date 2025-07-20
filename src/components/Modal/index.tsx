@@ -21,11 +21,10 @@ export function Modal({ modalVisible, setModalVisible, ...rest }: Props) {
       <Content>
         <ModalWindow
           animationType="fade"
-          transparent={true}
+          transparent
           visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
+            setModalVisible(false);
           }}
           {...rest}
         >

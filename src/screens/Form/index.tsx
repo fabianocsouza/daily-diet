@@ -71,7 +71,11 @@ export function Form() {
 
         <Button
           title={edit ? "Salvar alterações" : "Cadastrar refeição"}
-          onPress={() => navigation.navigate("feedback", { diet: isCheck })}
+          onPress={() =>
+            edit
+              ? navigation.goBack()
+              : navigation.navigate("feedback", { diet: isCheck })
+          }
         />
       </Content>
     </Container>

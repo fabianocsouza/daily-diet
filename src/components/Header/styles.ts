@@ -12,10 +12,6 @@ export const Container = styled.View`
 export const ButtonGoBack = styled(TouchableOpacity)`
   position: absolute;
   left: 24px;
-
-  ${({ theme }) => css`
-    background-color: ${theme.COLORS.GRAY_100};
-  `}
 `;
 
 export const Title = styled.Text`

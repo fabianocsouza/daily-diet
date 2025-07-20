@@ -86,3 +86,11 @@ export const Status = styled.View`
   border-radius: 50%;
   background-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
 `;
+
+export const Footer = styled.View`
+  top: 650px;
+  width: 100%;
+  position: absolute;
+  gap: 10px;
+  left: 25px;
+`;
