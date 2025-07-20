@@ -64,14 +64,16 @@ export function Home() {
         <Button
           title="Nova refeição"
           isIcon
-          onPress={() => navigation.navigate("meal")}
+          onPress={() => navigation.navigate("creation")}
         />
       </View>
 
       <SectionList
         sections={DATA}
         keyExtractor={(item) => item.title}
-        renderItem={({ item }) => <CardDiet data={item} />}
+        renderItem={({ item }) => (
+          <CardDiet data={item} onPress={() => navigation.navigate("meal")} />
+        )}
         renderSectionHeader={({ section: { title } }) => <Date>{title}</Date>}
         showsVerticalScrollIndicator={false}
       />

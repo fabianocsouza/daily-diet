@@ -4,6 +4,7 @@ import { Home } from "@/screens/Home";
 import { Static } from "@/screens/Statics";
 import { MealCreation } from "@/screens/MealCreation";
 import { FeedBack } from "@/screens/FeedBack";
+import { Meal } from "@/screens/Meal";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -36,18 +37,30 @@ export function AppRoutes() {
       initialRouteName="home"
     >
       <Screen name="home" component={Home} />
+
       <Screen name="static" component={Static} />
+
       <Screen
-        name="meal"
+        name="creation"
         component={MealCreation}
         options={{
           animation: "none",
           presentation: "card",
         }}
       />
+
       <Screen
         name="feedback"
         component={FeedBack}
+        options={{
+          animation: "none",
+          presentation: "card",
+        }}
+      />
+
+      <Screen
+        name="meal"
+        component={Meal}
         options={{
           animation: "none",
           presentation: "card",

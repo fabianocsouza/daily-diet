@@ -1,3 +1,5 @@
+import type { TouchableOpacityProps } from "react-native";
+
 import { Container, Hours, InfoDiet, Separator, Status, Title } from "./styles";
 
 type DietProps = {
@@ -6,13 +8,13 @@ type DietProps = {
   status: string;
 };
 
-type Props = {
+type Props = TouchableOpacityProps & {
   data: DietProps;
 };
 
-export function CardDiet({ data }: Props) {
+export function CardDiet({ data, ...rest }: Props) {
   return (
-    <Container>
+    <Container {...rest}>
       <InfoDiet>
         <Hours>{data.hours}</Hours>
         <Separator />
