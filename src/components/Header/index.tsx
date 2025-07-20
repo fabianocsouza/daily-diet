@@ -1,16 +1,15 @@
 import React from "react";
 import { ButtonGoBack, Container, Icon, Title } from "./styles";
-import { useNavigation } from "@react-navigation/native";
 
 type Props = {
   title: string;
+  onPress: () => void;
 };
 
-export function Header({ title }: Props) {
-  const navigation = useNavigation();
+export function Header({ title, onPress }: Props) {
   return (
     <Container>
-      <ButtonGoBack onPress={() => navigation.goBack()}>
+      <ButtonGoBack onPress={onPress}>
         <Icon />
       </ButtonGoBack>
       <Title>{title}</Title>

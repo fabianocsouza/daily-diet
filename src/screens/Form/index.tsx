@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import {
   Container,
@@ -12,23 +12,32 @@ import {
   InputHours,
   InputDate,
   DietCheck,
-  Form,
+  Content,
 } from "./styles";
 
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { ButtonCheck } from "@/components/ButtonCheck";
 
-export function MealCreation() {
+type ParamsForm = {
+  edit: string;
+};
+
+export function Form() {
   const [isCheck, setIsCheck] = useState<"NÃO" | "SIM">();
 
   const navigation = useNavigation();
+  const { params } = useRoute();
+  const { edit } = params as ParamsForm;
 
   return (
     <Container>
-      <Header title="Nova Refeição" />
+      <Header
+        title={edit ? "Editar Refeição" : "Nova Refeição"}
+        onPress={() => navigation.goBack()}
+      />
 
-      <Form>
+      <Content>
         <Label>Nome</Label>
         <InputName />
         <Label>Descrição</Label>
@@ -61,10 +70,10 @@ export function MealCreation() {
         </DietCheck>
 
         <Button
-          title="Cadastrar refeição"
+          title={edit ? "Salvar alterações" : "Cadastrar refeição"}
           onPress={() => navigation.navigate("feedback", { diet: isCheck })}
         />
-      </Form>
+      </Content>
     </Container>
   );
 }

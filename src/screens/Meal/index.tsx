@@ -13,12 +13,23 @@ import {
 import { Header } from "@/components/Header";
 import { Button } from "@/components/Button";
 import { Modal } from "@/components/Modal";
+import { useNavigation } from "@react-navigation/native";
 
 export function Meal() {
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+  function handle() {
+    console.log(1);
+  }
   return (
     <Container status="SIM">
-      <Header title="Refeição" />
+      <Header
+        title="Refeição"
+        onPress={() => {
+          console.log("clicou no header");
+          navigation.goBack();
+        }}
+      />
       <Content>
         <Title>Sanduíche</Title>
         <Description>
@@ -42,7 +53,7 @@ export function Meal() {
           title="Editar refeição"
           name="pencil"
           isIcon
-          onPress={() => {}}
+          onPress={() => navigation.navigate("form", { edit: true })}
           style={{ top: -80 }}
         />
         <Button

@@ -7,7 +7,7 @@ export const Container = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
 `;
 
-export const Form = styled.View`
+export const Content = styled.View`
   width: 100%;
   height: 100%;
 

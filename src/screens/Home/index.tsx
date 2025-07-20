@@ -64,7 +64,7 @@ export function Home() {
         <Button
           title="Nova refeição"
           isIcon
-          onPress={() => navigation.navigate("creation")}
+          onPress={() => navigation.navigate("form", { edit: false })}
         />
       </View>
 

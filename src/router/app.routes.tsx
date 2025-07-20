@@ -2,7 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Home } from "@/screens/Home";
 import { Static } from "@/screens/Statics";
-import { MealCreation } from "@/screens/MealCreation";
+import { Form } from "@/screens/Form";
 import { FeedBack } from "@/screens/FeedBack";
 import { Meal } from "@/screens/Meal";
 
@@ -41,8 +41,8 @@ export function AppRoutes() {
       <Screen name="static" component={Static} />
 
       <Screen
-        name="creation"
-        component={MealCreation}
+        name="form"
+        component={Form}
         options={{
           animation: "none",
           presentation: "card",
