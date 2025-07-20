@@ -39,7 +39,9 @@ export function Home() {
       <Title>Refeições</Title>
       <Button
         title="Nova refeição"
+        isIcon
         onPress={() => navigation.navigate("meal")}
+        style={{ top: -470 }}
       />
     </Container>
   );

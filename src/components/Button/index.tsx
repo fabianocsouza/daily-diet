@@ -4,13 +4,14 @@ import type { TouchableOpacityProps } from "react-native";
 
 type Props = TouchableOpacityProps & {
   title: string;
+  isIcon?: boolean;
   onPress: () => void;
 };
 
-export function Button({ title, onPress, ...rest }: Props) {
+export function Button({ title, isIcon, onPress, ...rest }: Props) {
   return (
     <Container onPress={onPress} {...rest}>
-      <Icon />
+      {isIcon && <Icon />}
       <Title>{title}</Title>
     </Container>
   );

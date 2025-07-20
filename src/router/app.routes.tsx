@@ -2,6 +2,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Home } from "@/screens/Home";
 import { Static } from "@/screens/Statics";
+import { NewMeal } from "@/screens/NewMeal";
+import { FeedBack } from "@/screens/FeedBack";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -35,6 +37,22 @@ export function AppRoutes() {
     >
       <Screen name="home" component={Home} />
       <Screen name="static" component={Static} />
+      <Screen
+        name="meal"
+        component={NewMeal}
+        options={{
+          animation: "none",
+          presentation: "card",
+        }}
+      />
+      <Screen
+        name="feedback"
+        component={FeedBack}
+        options={{
+          animation: "none",
+          presentation: "card",
+        }}
+      />
     </Navigator>
   );
 }

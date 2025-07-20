@@ -3,6 +3,8 @@ export declare global {
     interface RootParamList {
       home: undefined;
       static: undefined;
+      meal: undefined;
+      feedback: { diet: string | undefined };
     }
   }
 }

@@ -37,15 +37,15 @@ export const Content = styled.View`
   height: 100%;
 
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
-  border-radius: 35px;
+  border-radius: 25px;
   padding: 24px;
   align-items: center;
-  gap: 15;
+  gap: 15px;
 `;
 
 export const TitleStatics = styled.Text`
-  margin-top: 10;
-  margin-bottom: 15;
+  margin-top: 10px;
+  margin-bottom: 15px;
 
   ${({ theme }) => css`
     font-size: ${theme.COLORS.FONT_SIZE.MD}px;
