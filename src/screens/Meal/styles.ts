@@ -2,7 +2,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styled, { css } from "styled-components/native";
 
 type Props = {
-  status: string;
+  status?: string;
 };
 
 export const Container = styled(SafeAreaView)<Props>`
@@ -76,9 +76,9 @@ export const InfoStatus = styled.View`
   background-color: ${({ theme }) => theme.COLORS.GRAY_600};
 
   gap: 10px;
-
-  margin-bottom: 370px;
+  margin-bottom: -600px;
 `;
+
 export const Status = styled.View`
   width: 10px;
   height: 10px;
