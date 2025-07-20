@@ -2,7 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { Home } from "@/screens/Home";
 import { Static } from "@/screens/Statics";
-import { NewMeal } from "@/screens/NewMeal";
+import { MealCreation } from "@/screens/MealCreation";
 import { FeedBack } from "@/screens/FeedBack";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -39,7 +39,7 @@ export function AppRoutes() {
       <Screen name="static" component={Static} />
       <Screen
         name="meal"
-        component={NewMeal}
+        component={MealCreation}
         options={{
           animation: "none",
           presentation: "card",

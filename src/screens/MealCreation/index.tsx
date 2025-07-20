@@ -19,7 +19,7 @@ import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { ButtonCheck } from "@/components/ButtonCheck";
 
-export function NewMeal() {
+export function MealCreation() {
   const [isCheck, setIsCheck] = useState<"NÃO" | "SIM">();
 
   const navigation = useNavigation();
