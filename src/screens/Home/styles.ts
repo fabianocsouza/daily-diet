@@ -20,11 +20,19 @@ export const Logo = styled.Image`
 `;
 
 export const Title = styled.Text`
-  top: -480px;
-
   ${({ theme }) => css`
     font-size: ${theme.COLORS.FONT_SIZE.LG}px;
     font-family: ${theme.COLORS.FONT_FAMILY.REGULAR};
     color: ${theme.COLORS.GRAY_100};
   `}
+`;
+
+export const Date = styled.Text`
+  margin-top: 15px;
+  ${({ theme }) => css`
+    font-size: ${theme.COLORS.FONT_SIZE.LG}px;
+    font-family: ${theme.COLORS.FONT_FAMILY.BOLD};
+    color: ${theme.COLORS.GRAY_100};
+  `};
+  margin-bottom: 8px;
 `;
